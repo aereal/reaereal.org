@@ -5,7 +5,10 @@ html
     meta charset='utf-8'
     == stylesheet_link_tag 'portfolio.css'
     == yield_content :head
+    title= [data.page.title, "Re:aereal.org"].compact.join(' - ')
 
   body
     header#global-header
-      h1== link_to "Re:aereal.org", "/"
+      h1== link_to "Re:aereal.org", "/", unless: '/'
+    div#content== yield
+    footer#global-footer
